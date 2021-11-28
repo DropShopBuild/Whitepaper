@@ -1,3 +1,3 @@
 # Hackathon-White-Paper
 
-Here we present the white paper of our dApp "DropShop".
+Here we present the whitepaper of our dApp "DropShop".
