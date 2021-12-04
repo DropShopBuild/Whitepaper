@@ -398,25 +398,25 @@ Ultimately, DropShop can go beyond Drops to enable user to user asset transactio
 \appendix
 
 \section{Distribution Score}\label{APP-DistributionFunctions}
-The distribution of Sponsor Tokens is critical for \textbf{DropShop} users. For a sponsor competing with others, it would be beneficial to tell its potential participants how well its `Sponsor Tokens` is distributed so that it has a fairer chance to win the lottery than those brands with poorly distributed `Sponsor Tokens`. Besides, participants would know they have a good chance to win with the information about the distribution of `Sponsor Tokens`.  
+Transparency around the distribution of Sponsor Tokens is critical for \textbf{DropShop} users. Tokens highly concentrated with a few participants may signal to other Participants that the Sponsor is colluding with certain individuals, especially for a lottery which weights tokens heavily. Then again, it could also mean they are highly rewarding just a few folks whom have truly created a lot value for the brand. Either way, it gives the Participant a better understanding of the potential weights of theirs vs. other tickets.
 
-There are many indices and coefficients to measure the distribution of numeric values. DropShop utilizes a simple and well-known `GINI` coefficient. It is often mentioned in world economic news articles and used in the context of how well a nation's wealth is distributed among its population.
+There are many indices and coefficients to measure the distribution of numeric values. DropShop utilizes the simple and well-known `Gini` coefficient. It is often mentioned in world economic news articles and used in the context of how well a nation's wealth is distributed among its population.
 
-The Gini coefficient is defined using the auxiliary curve, called Lorenz curve. In the context of `Brand Tokens`, Lorenz curve is defined the following function: for $x$ in $[0,1]$,
+The Gini coefficient is defined using the auxiliary curve, called Lorenz curve. In the context of Brand Tokens, the Lorenz curve is defined the following function: for $x$ in $[0,1]$,
 \begin{equation}\label{eq:Lorenz}
 f(x) =  \frac{ \sum_{\mathrm{R} (p) \leq x} \mathrm{BT} (p) }{\sum_{p} \mathrm{BT} (p)},
 \end{equation}
-where the function $\mathrm{BT}$ map each token holder $p$ to his/her token amount and $\mathrm{R}$ to his/her rank ratio from the bottom among all the token holders. Thus the function maps for each $x$ between $0$ and $1$ the proportion of the token holders who belong to the bottom $x$ of token holders in token amount.
+where the function $\mathrm{BT}$ maps each token holder $p$ to his/her token amount and $\mathrm{R}$ to his/her rank ratio from the bottom among all the token holders. Thus the function maps for each $x$ between $0$ and $1$ the proportion of the token holders who belong to the bottom $x$ of token holders in token amount.
 
 Then, the `Gini` coefficient is defined:
 $$
 \textrm{Gini coefficient} = 1 - 2 \times \textrm{Area under the Lorenz curve}
 $$
-The `Gini coefficient` can be also defined graphically. In Figure \ref{fig:Lorenz}, there are two curves, a linear curve and a Lorenz curve. A linear curve represents the population where the wealth or token is distributed  equally. And a Lorenz curve is the curve defined by the function \ref{eq:Lorenz}. Then the Gini coefficient is defined to be
+The `Gini coefficient` can be also defined graphically. In Figure \ref{fig:Lorenz}, there are two curves, a linear curve and a Lorenz curve. A linear curve represents the population where the wealth or token is distributed equally. And a Lorenz curve is the curve defined by the function \ref{eq:Lorenz}. Then the Gini coefficient is defined to be
 $$
 \frac{A}{A+B}.
 $$
-A population of equal wealth has Gini coefficient $0$ because the area $A$ is equal to $0$. However, a population with one person having all has Gini coefficient  $1$ because the area under the Lorenz curve is $0$.
+A population of equal wealth has Gini coefficient $0$ because the area of $A$ is equal to $0$. However, a population with one person having all the distribution has a Gini coefficient of $1$ because the area under the Lorenz curve is $0$.
 
 \begin{figure}[H]
 \centering
@@ -428,13 +428,13 @@ A population of equal wealth has Gini coefficient $0$ because the area $A$ is eq
 
 
 \section{Ticket Weight Functions}\label{APP-TWF}
-Ticket weights are dependent upon price premium and token as mentioned in Section \ref{subsection-Ticketing}. Price premium is the amount a participant is willing to pay more than the base price and brand token is the amount of token in a participants address given by the brand.
+Ticket weights are dependent upon price premium and Sponsor tokens applied to a ticket, as mentioned in Section \ref{subsection-Ticketing}.
 
-It is the brand that determines the ticket weight function for its customer. One would value more the token it has given out, and the other would price premium more. This feature, the intention of the brand, is coded into the ticket weight function. The prototype of the function is a polynomial of form:
+It is the Sponsor that determines the TWF function parameters for each lottery. One may value tokens more, other's price premium - note though that the overall weight is a combination of both. The prototype of the function is a polynomial of form:
 $$
-p^n \times t^m
+p^n \times (t+1)^m
 $$
-where $p$ and $t$ represents price premium and token, respectively.
+where $p$ and $t$ represents price premium (stake/price) and Sponsor tokens, respectively.
 
 The following graphs are the results of the simulations of the case $n=1$ and $m=2,3,4$. The winners are red dots and the size of the dot represents the ticket weight.
 \begin{figure}[H]
